@@ -1724,12 +1724,11 @@ class DacteV3 extends Common
         $this->pdf->Line($x, $y, $w + 1, $y);
         //Identifica código da unidade
         //01 = KG (QUILOS)
-        if ($this->getTagValue($this->infQ->item(0), "cUnid") == '01') {
-            $qCarga = $this->getTagValue($this->infQ->item(0), "qCarga");
-        } elseif ($this->getTagValue($this->infQ->item(1), "cUnid") == '01') {
-            $qCarga = $this->getTagValue($this->infQ->item(1), "qCarga");
-        } elseif ($this->getTagValue($this->infQ->item(2), "cUnid") == '01') {
-            $qCarga = $this->getTagValue($this->infQ->item(2), "qCarga");
+        foreach ($this->infQ as $infQ) {
+            if ($this->getTagValue($infQ, "cUnid") == '01') {
+                $qCarga = $this->getTagValue($infQ, "qCarga");
+                break;
+            }
         }
         $texto = 'PESO BRUTO (KG)';
         $aFont = array(
