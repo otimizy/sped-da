@@ -1794,8 +1794,11 @@ class DacteV3 extends Common
         $this->pTextBox($x+85, $y, $w, $h, $texto, $aFont, 'T', 'L', 0, '');
         $qCarga = '';
         foreach ($this->infQ as $infQ) {
-            if ($this->getTagValue($infQ, "cUnid") == '03') {
+            if ($this->getTagValue($infQ, "cUnid") == '03'
+                && $this->getTagValue($infQ, "qCarga") > 0
+            ) {
                 $qCarga = $this->getTagValue($infQ, "qCarga");
+                break;
             }
         }
         $texto = !empty($qCarga) ? number_format($qCarga, 3, ",", ".") : '';
