@@ -396,7 +396,7 @@ class Danfe extends Common
     {
         $this->creditos = trim($message);
     }
-    
+
     /**
      * monta
      *
@@ -715,8 +715,8 @@ class Danfe extends Common
         $y = $this->pCabecalhoDANFE($x, $y, $pag, $totPag);
         //coloca os dados do destinatário
         $y = $this->pDestinatarioDANFE($x, $y+1);
-        
-        
+
+
         //Verifica as formas de pagamento da nota fiscal
         $formaPag = array();
         if (isset($this->detPag) && $this->detPag->length > 0) {
@@ -1892,7 +1892,7 @@ class Danfe extends Common
             return ($y-2);
         }
     } //fim da função pagamentoDANFE
-    
+
     /**
      * impostoDanfeHelper
      * Auxilia a montagem dos campos de impostos e totais da DANFE
@@ -2865,7 +2865,7 @@ class Danfe extends Common
         $texto = 'Placa.................: ' . $veiculoPlaca;
         $this->pTextBox($xVeic, $yVeic, $w1+50, $h, $texto, $aFont, 'T', 'L', 0, '');
         $yVeic += $h;
-        $texto = 'Tipo Pintura......: ' . $renavamTipoPintura[$veiculoTipoPintura];
+        $texto = 'Tipo Pintura......: ' . ($renavamTipoPintura[$veiculoTipoPintura] ?? $veiculoTipoPintura);
         $this->pTextBox($xVeic, $yVeic, $w1+50, $h, $texto, $aFont, 'T', 'L', 0, '');
         $yVeic = $y + $h;
         $xVeic = $xVeic + 55;
@@ -3376,7 +3376,7 @@ class Danfe extends Common
         }
         return $saida;
     }
-    
+
     private function imagePNGtoJPG($original)
     {
         $image = imagecreatefrompng($original);
