@@ -666,7 +666,7 @@ class Danfe extends Common
             ($linhaISSQN * $hissqn) + $hdadosadic + $hfooter + $hCabecItens +
             $this->pSizeExtraTextoFatura());
         if ($this->orientacao == 'P') {
-            $hDispo1 -= 24 * $this->qCanhoto;//para canhoto
+            $hDispo1 -= 20 * $this->qCanhoto;//para canhoto
             $w = $this->wPrint;
         } else {
             $hcanhoto = $this->hPrint;//para canhoto
@@ -684,7 +684,7 @@ class Danfe extends Common
         while ($i < $this->det->length) {
             $texto = $this->pDescricaoProduto($this->det->item($i));
             $numlinhas = $this->pGetNumLines($texto, $w2, $fontProduto);
-            $hUsado += round(($numlinhas * $this->pdf->fontSize) + ($numlinhas * 0.5), 2);
+            $hUsado += round(($numlinhas * $this->pdf->fontSize) + ($numlinhas * 0.50), 2) + 3;
             if ($hUsado > $hDispo) {
                 $totPag++;
                 $hDispo = $hDispo2;
@@ -2562,7 +2562,7 @@ class Danfe extends Common
                 $textoProduto = trim($this->pDescricaoProduto($thisItem));
 
                 $linhaDescr = $this->pGetNumLines($textoProduto, $w2, $aFont);
-                $h = round(($linhaDescr * $this->pdf->fontSize)+ ($linhaDescr * 0.5), 2);
+                $h = round(($linhaDescr * $this->pdf->fontSize)+ ($linhaDescr * 0.50), 2);
                 $hUsado += $h;
 
                 $diffH = $hmax - $hUsado;
