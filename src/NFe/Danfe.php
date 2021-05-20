@@ -3074,7 +3074,7 @@ class Danfe extends Common
         $aFont = array('font'=>$this->fontePadrao, 'size'=>6, 'style'=>'I');
         $texto = "Impresso em ". date('d/m/Y') . " as " . date('H:i:s');
         $this->pTextBox($x, $y, $w, 0, $texto, $aFont, 'T', 'L', false);
-        $texto = $this->creditos .  "  Powered by NFePHP";
+        $texto = $this->creditos;
         $this->pTextBox($x, $y, $w, 0, $texto, $aFont, 'T', 'R', false, '');
     }
 
