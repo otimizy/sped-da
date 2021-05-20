@@ -1120,7 +1120,7 @@ class DacteOSV3 extends Common
             'size' => 6,
             'style' => '');
         $this->pTextBox($x-1, $y+2, $w, 4, $texto, $aFont, 'T', 'L', 0, '');
-        $texto = $this->nomeDesenvolvedor . ' - '. $this->siteDesenvolvedor;
+        $texto = 'Desenvolvido por '.$this->nomeDesenvolvedor . ' - '. $this->siteDesenvolvedor;
         $aFont = array(
             'font' => $this->fontePadrao,
             'size' => 6,
